@@ -20,7 +20,36 @@ a{
     text-decoration: none;
 }
 
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
 /*utilities*/
+.read-btn {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.container {
+    width: 94%;
+    margin: 10px auto;
+}
+
+.gray-text {
+    color: gray;
+}
+
+.black-text {
+    color: black;
+}
 
 /*menu*/
 nav.menu{
@@ -63,14 +92,17 @@ nav.menu a.link-subs{
     font-size: 17px;
     letter-spacing: 3px;
     font-weight: 600;
-    background-color: black;
     color: white;
     padding: 23px 23px 21px 23px;
+    background: linear-gradient(to left, black 50%, #ffcc00 50%) right;
+    background-size: 200%;
+    transition: .3s ease-out;
 }
 
 nav.menu a.link-subs:hover{
     background-color: #ffcc00;
     color: black;
+    background-position: left;
 }
 
 .link-arrows{
@@ -79,7 +111,6 @@ nav.menu a.link-subs:hover{
 
 /*header*/
 header {
-    background-color: black;
     height: 270px;
     margin-top: 60px;
     text-align: center;
@@ -98,34 +129,35 @@ header p{
     font-size: 20px;
 }
 
-header p span:hover{
+.fill {
+    position: relative;
+    cursor: pointer;
+    transition: 0.08s ease-in;
+    text-decoration: underline;
+    text-decoration-color: #fc0;
+    text-decoration-thickness: 3px;
+}
+  
+.fill:hover {
     padding: 2px 0px;
     color: black;
     cursor: pointer;
-    background-color: #fc0;
 }
-
-header p span{
-    position: relative;
-}
-
-.efect:after{
-    position: absolute;
-    bottom: 7px;
-    left: 0px;
-    width: 100%;
-    height: 4px;
-    background-color: #fc0;
+  
+.fill:before {
     content: "";
-    opacity: 1;
-    transform: translateY(15px);          
+    position: absolute;
+    background-color: #fc0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.15s ease-in;
 }
-
-.efect:hover:after{
-    opacity:1;
-    height: 10px;
-    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
-    transform: translateY(15px);
+  
+.fill:hover:before {
+    top: 0;
 }
 
 .line {
@@ -139,4 +171,144 @@ header p span{
     background-color:#ffcc00;
     width: 40px;
     height: 5.5px;
+}
+
+/*main news*/
+.main-news{
+    position: relative; /*the parent*/
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.main-news-img img{
+    min-height: 400px;
+}
+
+.main-news-text{
+    position: absolute; /*the child*/
+    top: 200px;
+    left: 40px;
+}
+
+.main-news-img{
+    overflow: hidden;
+}
+
+.main-news-img img:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.main-news-text p.title{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 20px 0px;
+    word-spacing: 5px;
+}
+
+/*secondary-news*/
+.secondary-news {
+    height: 570px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.secondary-news-img {
+    height: 350px;
+    overflow: hidden;
+}
+
+.secondary-news-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.secondary-news-img img:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.secondary-news-img:hover{
+    border-bottom: #fc0 solid 7px;
+}
+
+.secondary-news-text {
+    height: 180px;
+    background-color: white;
+    padding: 20px;
+}
+
+.secondary-news-text h3, .main-news-text h3{
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.secondary-news-text h3:hover, .main-news-text h3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.secondary-news-text p:nth-child(2){
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/*todays picks*/
+h2 {
+    font-size: 40px;
+    letter-spacing: 5px;
+    border-left: 5px solid #ffcc00;
+    padding-left: 20px;
+    margin: 30px 0;
+}
+
+.pick-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pick-item img {
+    width: 120px;
+    height: 120px;
+}
+
+.pick-item-text {
+    flex-basis: 77%;
+}
+
+.pick-item-text p {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.pick-item-text p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.pick-item-text h3{
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/*see more*/
+.more {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 50px 50px 80px 50px;
+    text-decoration: underline;
+    text-decoration-color: #fc0;
+    text-decoration-thickness: 3px;
+}
+
+.more:hover{
+    cursor: pointer;
 }
